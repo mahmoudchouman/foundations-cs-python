@@ -1,66 +1,61 @@
-
-
-
-#we ask the user to input rows and columns
-rows1 = int(input("Enter the number of rows: "))
-columns1 = int(input("Enter the number of columns: "))
-#We create an empty matrix to work with
-matrix1 = []
-rows2 = int(input("Enter the number of rows: "))
-columns2 = int(input("Enter the number of columns: "))
-matrix2 = []
-# We ask the user to enter the elements of the matrix and we iterate through the rows/columns then appending the
-    # elements to the matrix
-for row in range(rows1):
-    row_list = []
-    for col in range(columns1):
-            element = input("Enter element {} of row {}: ".format(col + 1, row + 1))
-            row_list.append(element)
-            matrix1.append(row_list)
-
-print(matrix1)
-
-for row in range(rows2):
-    row_list = []
-    for col in range(columns2):
-        element = input("Enter element {} of row {}: ".format(col + 1, row + 1))
-        row_list.append(element)
-        matrix2.append(row_list)
-
-print(matrix2)
+def initializeMatrix(rows, cols, matrix_name):
+    #initialize an empty matrix
+    matrix = []
+    #Loop through the rows and columns to get the elements values from the user
+    for i in range(rows):
+        row = []
+        for j in range(cols):
+            element = int(input(f"Enter element at position ({i + 1}, {j + 1}) for {matrix_name}: "))
+            row.append(element)
+        matrix.append(row)
+    return matrix
 
 def addMatrices():
-    #first we ensure that the matrices are equal with this if statement
-    if rows1 != rows2 or columns1 != columns2:
-        print("Please run the program again and insert equal matrices")
-        exit()
-    #Create an empty list to store the result matrix
+    #Get matrix rows and columns as input
+    rows1 = int(input("Please enter number of rows for matrix 1: "))
+    cols1 = int(input("Please enter number of columns for matrix 1: "))
+    rows2 = int(input("Please enter number of rows for matrix 2 : "))
+    cols2 = int(input("Please enter number of columns for matrix 2: "))
+
+    #we ensure the matrices are of equal dimensions
+    if rows1 != rows2 or cols1 != cols2:
+        print("Matrices should be of same size")
+        return
+
+    #create the 2 matrices using the initialize function we did before
+    matrix1 = initializeMatrix(rows1,cols1,"matrix1")
+    matrix2 = initializeMatrix(rows2,cols2,"matrix2")
+
+    # create an empty matrix in which the matrices will be added , using the for loop below
     matrix3 = []
-    # Iterate over the rows of matrix1 and create a new row in matrix3 for each row. Then iterate over the columns of
-    # the row
-    # Then for each column , the function adds elements of matrix1 and matrix2 and stores the result in matrix3
-    for i in range(len(matrix1)):
+
+    for i in range(rows1):
         row = []
-        for j in range(len(matrix1[0])):
-            row.append(matrix1[i][j] + matrix2[i][j])
+        for j in range(cols1):
+            result_element = matrix1[i][j] + matrix2[i][j]
+            row.append(result_element)
         matrix3.append(row)
-    return matrix3
 
-# matrix3 = addMatrices(matrix1,matrix2)
-# print(matrix3)
 
-def checkRotation(matrix1,matrix2):
-    for i in range(len(matrix1[0])):
-        for j in range(len(matrix1)):
-            if matrix1[i][j] != matrix2[j][i]:
-                return False
-    return True
-if checkRotation(matrix1,matrix2) :
-     print("The first matrix is the rotation of the second matrix.")
-else:
-    print("The first matrix is not the rotation of the second matrix.")
+    print("Matrix 3 is equal to : ")
+    for row in matrix3:
+        print(row)
 
-print(checkRotation(matrix1,matrix2))
+
+
+
+# def checkRotation(matrix1,matrix2):
+#     for i in range(len(matrix1[0])):
+#         for j in range(len(matrix1)):
+#             if matrix1[i][j] != matrix2[j][i]:
+#                 return False
+#     return True
+# if checkRotation(matrix1,matrix2) :
+#      print("The first matrix is the rotation of the second matrix.")
+# else:
+#     print("The first matrix is not the rotation of the second matrix.")
+#
+# print(checkRotation(matrix1,matrix2))
 
 def invertDictionary():
     pass
@@ -92,8 +87,8 @@ def main():
 
         if choice == "1":
             addMatrices()
-        elif choice == "2":
-            checkRotation()
+        # elif choice == "2":
+        #     checkRotation()
         elif choice == "3":
             invertDictionary()
         elif choice == "4":
