@@ -58,7 +58,33 @@ def addMatrices():
 # print(checkRotation(matrix1,matrix2))
 
 def invertDictionary():
-    pass
+    # acquiring the number of items in the dictionary from the user and then creating 2 empty dictionaries (the original
+    # and the inverted)
+    number_of_items = int(input("enter the number of items in the dictionary: "))
+    original = {}
+    inverted = {}
+    #looping in number of items and asking the user to input keys and variables in the original dictionary
+    for _ in range(number_of_items):
+        key = input("please enter key : ")
+        value = input("please enter value : ")
+        original[key] = value
+
+        if value in inverted:
+            # If it is, append the key to the list of values for that key
+            if isinstance(inverted[value], list):
+                inverted[value].append(key)
+            else:
+                inverted[value] = [inverted[value], key]
+        else:
+            # If it is not, create a new list or a single value with the key as the only element
+            inverted[value] = key
+
+    print("\noriginal:")
+    print(original)
+    print("\ninverted:")
+    print(inverted)
+
+
 
 def convertMatrixToDictionary():
     pass
