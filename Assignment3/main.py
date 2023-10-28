@@ -87,7 +87,37 @@ def invertDictionary():
 
 
 def convertMatrixToDictionary():
-    pass
+    num_users = int(input("Enter the number of users: "))
+
+    # Make an empty matrix
+    user_matrix = []
+
+    # fill up the matrix with user input
+    for _ in range(num_users):
+        user_data = [
+            input("Enter First Name: "),
+            input("Enter Last Name: "),
+            input("Enter ID: "),
+            input("Enter Job Title: "),
+            input("Enter Company: "), ]
+
+        user_matrix.append(user_data)
+
+    # Display the original matrix
+    print("\nOriginal Matrix:")
+    for user_data in user_matrix:
+        print(user_data)
+
+    # Convert the matrix to a dictionary
+    user_dict = {}
+    for user_data in user_matrix:
+        user_id = user_data[2]  # Knowing ID is always at index 2
+        user_info = user_data[:2] + user_data[3:]  # Exclude ID from user_info
+        user_dict[user_id] = user_info
+
+    # Display the converted dictionary
+    print("\nConverted Dictionary:")
+    print(user_dict)
 
 
 def isPalindrome(s):
