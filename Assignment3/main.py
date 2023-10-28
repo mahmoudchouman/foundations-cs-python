@@ -121,7 +121,18 @@ def convertMatrixToDictionary():
 
 
 def isPalindrome(s):
-    pass
+    # Base case: if the string has 0 or 1 characters, it's a palindrome
+    if len(s) <= 1:
+        return True
+
+    # Recursive case: check if the first and last characters are the same
+    if s[0] == s[-1]:
+        # If they are, recursively check the substring without the first and last characters
+        return isPalindrome(s[1:-1])
+    else:
+        # If the first and last characters are not the same, it's not a palindrome
+        return False
+
 
 
 def searchAndmergeSort():
