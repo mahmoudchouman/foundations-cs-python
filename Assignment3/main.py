@@ -122,7 +122,7 @@ def convertMatrixToDictionary(): #O(n) | for loops (not nested)
     print(user_dict)
 
 
-def isPalindrome(s):
+def isPalindrome(s): #O(n) | recursive call
     # Base case: if the string has 0 or 1 characters, it's a palindrome
     if len(s) <= 1:
         return True
