@@ -26,7 +26,7 @@ def addMatrices():
     matrix1 = initializeMatrix(rows1,cols1,"matrix1")
     matrix2 = initializeMatrix(rows2,cols2,"matrix2")
 
-    # create an empty matrix in which the matrices will be added , using the for loop below
+    # create an empty matrix in which the matrices will be  added , using thefor loop below
     matrix3 = []
 
     for i in range(rows1):
@@ -41,21 +41,23 @@ def addMatrices():
     for row in matrix3:
         print(row)
 
+def checkRotation():
+    rows1 = int(input("Please enter number of rows for matrix 1: "))
+    cols1 = int(input("Please enter number of columns for matrix 1: "))
+    rows2 = int(input("Please enter number of rows for matrix 2 : "))
+    cols2 = int(input("Please enter number of columns for matrix 2: "))
 
+    matrix1 = initializeMatrix(rows1, cols1, "matrix1")
+    matrix2 = initializeMatrix(rows2, cols2, "matrix2")
 
+    # We loop through matrix 1 "elements" (rows and columns)
+    for i in range(len(matrix1)):
+        for j in range(len(matrix1[0])):
+            # We check if matrix 1 is the rotation of matrix 2 by using an if statement and reversing the indices
+            if matrix1[i][j] != matrix2[j][i]:
+                return False
 
-# def checkRotation(matrix1,matrix2):
-#     for i in range(len(matrix1[0])):
-#         for j in range(len(matrix1)):
-#             if matrix1[i][j] != matrix2[j][i]:
-#                 return False
-#     return True
-# if checkRotation(matrix1,matrix2) :
-#      print("The first matrix is the rotation of the second matrix.")
-# else:
-#     print("The first matrix is not the rotation of the second matrix.")
-#
-# print(checkRotation(matrix1,matrix2))
+    return True
 
 def invertDictionary():
     # acquiring the number of items in the dictionary from the user and then creating 2 empty dictionaries (the original
@@ -154,8 +156,11 @@ def main():
 
         if choice == "1":
             addMatrices()
-        # elif choice == "2":
-        #     checkRotation()
+        elif choice == "2":
+            if checkRotation():
+                print("The first matrix is the rotation of the second matrix.")
+            else:
+                print("The first matrix is not the rotation of the second matrix.")
         elif choice == "3":
             invertDictionary()
         elif choice == "4":
