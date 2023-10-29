@@ -88,7 +88,7 @@ def invertDictionary():
 
 
 
-def convertMatrixToDictionary():
+def convertMatrixToDictionary(): #O(n) | for loops (not nested)
     num_users = int(input("Enter the number of users: "))
 
     # Make an empty matrix
