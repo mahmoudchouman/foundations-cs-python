@@ -1,4 +1,4 @@
-def initializeMatrix(rows, cols, matrix_name):
+def initializeMatrix(rows, cols, matrix_name):    #O(n^2) | nested loops
     #initialize an empty matrix
     matrix = []
     #Loop through the rows and columns to get the elements values from the user
