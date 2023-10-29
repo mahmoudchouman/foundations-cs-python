@@ -10,7 +10,7 @@ def initializeMatrix(rows, cols, matrix_name):    #O(n^2) | nested loops
         matrix.append(row)
     return matrix
 
-def addMatrices():
+def addMatrices(): #O(N^2) | Nested loop and for loop O(n)
     #Get matrix rows and columns as input
     rows1 = int(input("Please enter number of rows for matrix 1: "))
     cols1 = int(input("Please enter number of columns for matrix 1: "))
