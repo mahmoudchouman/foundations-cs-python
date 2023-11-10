@@ -15,10 +15,12 @@ def openTab():
   title = input("Please enter the title of the website:")
   url = input("Please enter the url of the website:")
 
-  tab = {"title": title, "url": url, "nested_tabs": []}
-
-  tabs.append(tab)
-  print("Tab " + title + " opened successfully")
+  if url.startswith("http://") or url.startswith("https://"):
+    tab = {"title": title, "url": url, "nested_tabs": []}
+    tabs.append(tab)
+    print("Tab " + title + " opened successfully")
+  else:
+    print("Invalid URL! Please insert a valid URL starting with http or https")
 
 def closeTab():
   pass
