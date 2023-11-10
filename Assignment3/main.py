@@ -59,13 +59,13 @@ def checkRotation(): #O(n^2)| nested loop
 
     return True
 
-def invertDictionary():
+def invertDictionary(): #O(n) | for loop
     # acquiring the number of items in the dictionary from the user and then creating 2 empty dictionaries (the original
     # and the inverted)
     number_of_items = int(input("enter the number of items in the dictionary: "))
     original = {}
     inverted = {}
-    #looping in number of items and asking the user to input keys and variables in the original dictionary
+    #looping in number of items and asking the user to input keys and values in the original dictionary
     for _ in range(number_of_items):
         key = input("please enter key : ")
         value = input("please enter value : ")
