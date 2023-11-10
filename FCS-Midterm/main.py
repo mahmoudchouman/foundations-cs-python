@@ -1,3 +1,4 @@
+tabs = []
 def displayMenu():
   print("Menu")
   print("1-Open Tab")
@@ -11,7 +12,13 @@ def displayMenu():
   print("9-Exit")
 
 def openTab():
-  pass
+  title = input("Please enter the title of the website:")
+  url = input("Please enter the url of the website:")
+
+  tab = {"title": title, "url": url, "nested_tabs": []}
+
+  tabs.append(tab)
+  print("Tab " + title + " opened successfully")
 
 def closeTab():
   pass
