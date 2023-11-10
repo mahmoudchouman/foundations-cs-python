@@ -37,6 +37,36 @@ def importTabs():
 
 def main():
     print("Welcome to my cutting-edge browser!")
-    displayMenu()
+
+    while True:
+      displayMenu()
+
+      choice = eval(input("Please enter a choice from 1 to 9:"))
+
+      if choice == 1:
+        openTab()
+      elif choice == 2:
+        closeTab()
+      elif choice == 3:
+        switchTab()
+      elif choice == 4:
+        displayAllTabs()
+      elif choice == 5:
+        openNestedTabs()
+      elif choice == 6:
+        clearAllTabs()
+      elif choice == 7:
+        saveTabs()
+      elif choice == 8:
+        importTabs()
+      elif choice == 9:
+        print("Exiting the program.Goodbye!")
+        break
+      else:
+        print("Invalid input.Please enter a number between 1 and 9")
+
+
+
+
 
 main()
