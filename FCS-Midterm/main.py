@@ -49,7 +49,19 @@ def displayAllTabs():
   pass
 
 def openNestedTabs():
-  pass
+  parent_index = int(input("Please enter the index of the parent tab: "))
+  if 0 <= parent_index < len(tabs):
+    title = input("Please enter the title of the tab: ")
+    url = input("Please enter the url of the website:")
+
+    if url.startswith("http://") or url.startswith("https://"):
+      nested_tab = {"title": title, "url": url}
+      tabs[parent_index]["nested_tabs"].append(nested_tab)
+      print(title + "has been opened successfully in " + tabs[parent_index]["title"])
+    else:
+      print("Invalid URL! Please insert a valid URL starting with http or https")
+  else:
+    print("this parent tab doesnt exist!")
 
 def clearAllTabs():
   pass
