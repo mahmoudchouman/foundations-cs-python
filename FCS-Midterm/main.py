@@ -46,7 +46,10 @@ def switchTab():
   pass
 
 def displayAllTabs():
-  pass
+  for tab in tabs:
+    print(tab["title"])
+    for nested in tab["nested_tabs"]:
+      print("      " + nested["title"])
 
 def openNestedTabs():
   parent_index = int(input("Please enter the index of the parent tab: "))
