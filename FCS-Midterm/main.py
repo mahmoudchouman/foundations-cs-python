@@ -10,6 +10,9 @@ def displayMenu():
   print("8-Import Tabs")
   print("9-Exit")
 
+def openTab():
+  pass
+
 def main():
     print("Welcome to my cutting-edge browser!")
     displayMenu()
