@@ -19,6 +19,9 @@ def closeTab():
 def switchTab():
   pass
 
+def displayAllTabs():
+  pass
+
 def main():
     print("Welcome to my cutting-edge browser!")
     displayMenu()
