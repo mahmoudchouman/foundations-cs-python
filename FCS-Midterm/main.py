@@ -12,6 +12,11 @@ def displayMenu():
   print("9-Exit")
 
 def openTab():
+  #first of all we ask the user to input a tab title and a tab url
+  #then we make a dictionary called tab that contains 3 key/value pairs that uses the input title and url
+  #we make "nested tabs" and keep the list empty so we can fill it later in the nested tabs function
+  #we also make a checker for the URL to be correctly provided
+  #we append the tab to the global tabs list
   title = input("Please enter the title of the website:")
   url = input("Please enter the url of the website:")
 
@@ -21,6 +26,8 @@ def openTab():
     print("Tab " + title + " opened successfully")
   else:
     print("Invalid URL! Please insert a valid URL starting with http or https")
+
+
 
 def closeTab():
   pass
