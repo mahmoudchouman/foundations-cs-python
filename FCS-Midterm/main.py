@@ -46,6 +46,9 @@ def switchTab():
   pass
 
 def displayAllTabs():
+  #looping through the tabs list and printing tab titles
+  #then we loop through the nested tabs list that is within tabs list
+  #added spaces for printing the nested titles to display it in a hierarchically manner
   for tab in tabs:
     print(tab["title"])
     for nested in tab["nested_tabs"]:
