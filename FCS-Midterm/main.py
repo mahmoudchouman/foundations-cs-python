@@ -31,6 +31,10 @@ def clearAllTabs():
 def saveTabs():
   pass
 
+def importTabs():
+  pass
+
+
 def main():
     print("Welcome to my cutting-edge browser!")
     displayMenu()
