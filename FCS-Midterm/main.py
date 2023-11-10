@@ -22,6 +22,9 @@ def switchTab():
 def displayAllTabs():
   pass
 
+def openNestedTabs():
+  pass
+
 def main():
     print("Welcome to my cutting-edge browser!")
     displayMenu()
