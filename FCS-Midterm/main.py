@@ -28,6 +28,9 @@ def openNestedTabs():
 def clearAllTabs():
   pass
 
+def saveTabs():
+  pass
+
 def main():
     print("Welcome to my cutting-edge browser!")
     displayMenu()
