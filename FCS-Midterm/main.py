@@ -30,7 +30,14 @@ def openTab():
 
 
 def closeTab():
-  pass
+  index = eval(input("please choose the index of the tab you want to close:"))
+  if not index:
+    index = -1
+  if 0 <= index < len(tabs):
+    close_tab = tabs.pop(index)
+    print("the tab " + close_tab["title"] + " has been closed!")
+  else:
+    print("No tab found at the index you provided!")
 
 def switchTab():
   pass
