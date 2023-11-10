@@ -49,10 +49,13 @@ def displayAllTabs():
   #looping through the tabs list and printing tab titles
   #then we loop through the nested tabs list that is within tabs list
   #added spaces for printing the nested titles to display it in a hierarchically manner
-  for tab in tabs:
-    print(tab["title"])
-    for nested in tab["nested_tabs"]:
-      print("      " + nested["title"])
+  if tabs:
+    for tab in tabs:
+      print(tab["title"])
+      for nested in tab["nested_tabs"]:
+        print("      " + nested["title"])
+  else:
+    print("There are no tabs open!")
 
 def openNestedTabs():
   parent_index = int(input("Please enter the index of the parent tab: "))
@@ -70,7 +73,9 @@ def openNestedTabs():
     print("this parent tab doesnt exist!")
 
 def clearAllTabs():
-  pass
+  global tabs
+  tabs = []
+  print("All Tabs Are Cleared!")
 
 def saveTabs():
   pass
