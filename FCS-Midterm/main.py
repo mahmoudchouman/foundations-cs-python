@@ -13,6 +13,9 @@ def displayMenu():
 def openTab():
   pass
 
+def closeTab():
+  pass
+
 def main():
     print("Welcome to my cutting-edge browser!")
     displayMenu()
