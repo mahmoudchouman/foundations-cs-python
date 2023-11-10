@@ -30,6 +30,9 @@ def openTab():
 
 
 def closeTab():
+  #defined a variable called index that takes the index input from the user
+  #made an if statement for if the user didnt input an index to set the index automatically to -1
+  #made a variable called close_tab that uses the pop function to close the tab at the assigned index
   index = eval(input("please choose the index of the tab you want to close:"))
   if not index:
     index = -1
