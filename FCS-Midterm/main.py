@@ -97,7 +97,14 @@ def saveTabs():
     print("tabs saved to " + file_path)
 
 def importTabs():
-  pass
+  file_path = input("Please enter a file path: ")
+  try:
+    with open(file_path , "r") as file:
+      tabs = json.load(file)
+    print(json.dumps(tabs , indent=2))
+    print("tabs imported from " + file_path)
+  except FileNotFoundError:
+    print("File not found!")
 
 
 def main():
