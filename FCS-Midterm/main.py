@@ -1,3 +1,5 @@
+import json
+
 tabs = []
 def displayMenu():
   print("Menu")
@@ -31,7 +33,7 @@ def openTab():
 
 def closeTab():
   #defined a variable called index that takes the index input from the user
-  #made an if statement for if the user didnt input an index to set the index automatically to -1
+  #made an if statement for if the user didnt input an index to close the last tab in the list of tabs
   #made a variable called close_tab that uses the pop function to close the tab at the assigned index
   index = input("please choose the index of the tab you want to close:")
   if not index:
