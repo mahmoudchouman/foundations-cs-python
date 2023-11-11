@@ -97,6 +97,8 @@ def saveTabs():
     print("tabs saved to " + file_path)
 
 def importTabs():
+  #used the json.load method to get the file and used json.dumps method to display the tabs
+  #handled the case if the user inputs a file name that doesnt exist
   file_path = input("Please enter a file path: ")
   try:
     with open(file_path , "r") as file:
