@@ -33,14 +33,17 @@ def closeTab():
   #defined a variable called index that takes the index input from the user
   #made an if statement for if the user didnt input an index to set the index automatically to -1
   #made a variable called close_tab that uses the pop function to close the tab at the assigned index
-  index = eval(input("please choose the index of the tab you want to close:"))
+  index = input("please choose the index of the tab you want to close:")
   if not index:
-    index = -1
-  if 0 <= index < len(tabs):
-    close_tab = tabs.pop(index)
+    close_tab = tabs.pop(len(tabs) - 1)
     print("the tab " + close_tab["title"] + " has been closed!")
   else:
-    print("No tab found at the index you provided!")
+    index = int(index)
+    if 0 <= index < len(tabs):
+      close_tab = tabs.pop(index)
+      print("the tab " + close_tab["title"] + " has been closed!")
+    else:
+      print("No tab found at the index you provided!")
 
 def switchTab():
   pass
@@ -90,7 +93,7 @@ def main():
     while True:
       displayMenu()
 
-      choice = eval(input("Please enter a choice from 1 to 9:"))
+      choice = int(input("Please enter a choice from 1 to 9:"))
 
       if choice == 1:
         openTab()
