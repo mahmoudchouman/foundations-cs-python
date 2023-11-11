@@ -83,12 +83,10 @@ def clearAllTabs():
   tabs = []
   print("All Tabs Are Cleared!")
 
-def saveTabs():
+def saveTabs(file_path):
   #imported json and made the saveTabs function using the json.dump method
   #openned a file using the with open method and told it to write ("w") to the file
   #imported OS to fix the issue of duplicate names for the files by checking if that file path exists
-
-  file_path = input("Please enter a file path: ")
   if os.path.exists(file_path):
     print("a file with the name you entered already exists!try a different name.")
   else:
@@ -96,10 +94,9 @@ def saveTabs():
       json.dump(tabs , file)
     print("tabs saved to " + file_path)
 
-def importTabs():
+def importTabs(file_path):
   #used the json.load method to get the file and used json.dumps method to display the tabs
   #handled the case if the user inputs a file name that doesnt exist
-  file_path = input("Please enter a file path: ")
   try:
     with open(file_path , "r") as file:
       tabs = json.load(file)
@@ -130,9 +127,11 @@ def main():
       elif choice == 6:
         clearAllTabs()
       elif choice == 7:
-        saveTabs()
+        file_path = input("Please enter a file path: ")
+        saveTabs(file_path)
       elif choice == 8:
-        importTabs()
+        file_path = input("Please enter a file path: ")
+        importTabs(file_path)
       elif choice == 9:
         print("Exiting the program.Goodbye!")
         break
