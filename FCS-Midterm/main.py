@@ -1,4 +1,5 @@
 import json
+import os
 
 tabs = []
 def displayMenu():
@@ -84,8 +85,12 @@ def clearAllTabs():
 
 def saveTabs():
   file_path = input("Please enter a file path: ")
-  with open(file_path , "w") as file:
-    json.dump(tabs , file)
+  if os.path.exists(file_path):
+    print("a file with the name you entered already exists!try a different name.")
+  else:
+    with open(file_path , "w") as file:
+      json.dump(tabs , file)
+    print("tabs saved to " + file_path)
 
 def importTabs():
   pass
