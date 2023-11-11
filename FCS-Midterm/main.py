@@ -83,7 +83,9 @@ def clearAllTabs():
   print("All Tabs Are Cleared!")
 
 def saveTabs():
-  pass
+  file_path = input("Please enter a file path: ")
+  with open(file_path , "w") as file:
+    json.dump(tabs , file)
 
 def importTabs():
   pass
