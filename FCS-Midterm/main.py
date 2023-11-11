@@ -84,6 +84,10 @@ def clearAllTabs():
   print("All Tabs Are Cleared!")
 
 def saveTabs():
+  #imported json and made the saveTabs function using the json.dump method
+  #openned a file using the with open method and told it to write ("w") to the file
+  #imported OS to fix the issue of duplicate names for the files by checking if that file path exists
+
   file_path = input("Please enter a file path: ")
   if os.path.exists(file_path):
     print("a file with the name you entered already exists!try a different name.")
