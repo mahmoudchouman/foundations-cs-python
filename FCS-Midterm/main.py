@@ -115,7 +115,7 @@ def clearAllTabs(): #O(1) , because we are just clearing the tabs list and this 
 def saveTabs(file_path): #O(n) , because json.dump is a linear operation
   #imported json and made the saveTabs function using the json.dump method
   #openned a file using the with open method and told it to write ("w") to the file
-  #imported OS to fix the issue of duplicate names for the files by checking if that file path exists
+  #imported the os package to fix the issue of duplicate names for the files by checking if that file path exists
   if os.path.exists(file_path):
     print("a file with the name you entered already exists!try a different name.")
   else:
@@ -168,7 +168,16 @@ def main():
         print("Invalid input.Please enter a number between 1 and 9")
 
 
-
-
-
 main()
+
+#References:
+#w3schools:
+  #https://www.w3schools.com/python/python_json.asp
+  #https://www.w3schools.com/python/ref_string_startswith.asp
+  #https://www.w3schools.com/python/ref_list_pop.asp
+  #https://www.w3schools.com/python/python_file_open.asp
+
+#stackoverflow:
+  #https://stackoverflow.com/questions/24153519/how-to-read-html-from-a-url-in-python-3
+
+#some youtube videos
