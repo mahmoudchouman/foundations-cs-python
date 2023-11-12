@@ -49,7 +49,8 @@ def closeTab(): #O(n) because the pop method searches for the index to be popped
     else:
       print("No tab found at the index you provided!")
 
-def displayTabContent(url): #O()
+def displayTabContent(url): #O(n) because it depends on the size of the returned HTML content
+
   #we used a package called requests that allows us to hit the URL
   #we got the response and we printed out the response.text that resembles the HTML content of the page
 
@@ -60,7 +61,7 @@ def displayTabContent(url): #O()
     print(error)
 
 
-def switchTab():
+def switchTab(): #O(n) since it is using the displayTabContent function
   #we get the index from the user and if no index is provided we program the function to take the index of the last tab
   #we get the title and URL from the main list of tabs using the index provided from the user
   #after getting the URL we call our displayTabContent helper function with the url as parameter to
