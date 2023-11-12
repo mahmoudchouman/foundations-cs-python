@@ -66,7 +66,7 @@ def switchTab(): #O(n) since it is using the displayTabContent function
   #we get the title and URL from the main list of tabs using the index provided from the user
   #after getting the URL we call our displayTabContent helper function with the url as parameter to
   #print the HTML content of the tab
-  index = input("Please enter the index of you the tab you want to switch to: ")
+  index = input("Please enter the index of the tab you want to switch to: ")
   if not index:
     index = len(tabs) -1
   else:
@@ -96,12 +96,12 @@ def openNestedTabs(): #O(1) because it is just appending the nested tab to the t
   parent_index = int(input("Please enter the index of the parent tab: "))
   if 0 <= parent_index < len(tabs):
     title = input("Please enter the title of the tab: ")
-    url = input("Please enter the url of the website:")
+    url = input("Please enter the url of the website: ")
 
     if url.startswith("http://") or url.startswith("https://"):
       nested_tab = {"title": title, "url": url}
       tabs[parent_index]["nested_tabs"].append(nested_tab)
-      print(title + "has been opened successfully in " + tabs[parent_index]["title"])
+      print(title + " has been opened successfully in " + tabs[parent_index]["title"])
     else:
       print("Invalid URL! Please insert a valid URL starting with http or https")
   else:
@@ -141,7 +141,7 @@ def main():
     while True:
       displayMenu()
 
-      choice = int(input("Please enter a choice from 1 to 9:"))
+      choice = int(input("Please enter a choice from 1 to 9: "))
 
       if choice == 1:
         openTab()
