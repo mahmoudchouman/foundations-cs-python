@@ -1,5 +1,6 @@
 import json
 import os
+import requests
 
 tabs = []
 def displayMenu():
@@ -47,6 +48,14 @@ def closeTab():
       print("the tab " + close_tab["title"] + " has been closed!")
     else:
       print("No tab found at the index you provided!")
+
+def displayTabContent(url):
+  try:
+    response = requests.get(url)
+    print(response.text)
+  except Exception as error:
+    print(error)
+
 
 def switchTab():
   pass
@@ -119,7 +128,8 @@ def main():
       elif choice == 2:
         closeTab()
       elif choice == 3:
-        switchTab()
+        displayTabContent("https://justechlb.com")
+        #switchTab()
       elif choice == 4:
         displayAllTabs()
       elif choice == 5:
