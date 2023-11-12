@@ -49,7 +49,7 @@ def closeTab(): #O(n) because the pop method searches for the index to be popped
     else:
       print("No tab found at the index you provided!")
 
-def displayTabContent(url):
+def displayTabContent(url): #O()
   #we used a package called requests that allows us to hit the URL
   #we got the response and we printed out the response.text that resembles the HTML content of the page
 
@@ -79,7 +79,7 @@ def switchTab():
   else:
     print("Invalid tab index")
 
-def displayAllTabs():
+def displayAllTabs(): #O(n^2) because this function has a for loop and a nested for loop inside of it
   #looping through the tabs list and printing tab titles
   #then we loop through the nested tabs list that is within tabs list
   #added spaces for printing the nested titles to display it in a hierarchically manner
