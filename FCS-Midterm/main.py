@@ -111,7 +111,7 @@ def clearAllTabs(): #O(1) , because we are just clearing the tabs list and this 
   tabs = []
   print("All Tabs Are Cleared!")
 
-def saveTabs(file_path):
+def saveTabs(file_path): #O(n) , because json.dump is a linear operation
   #imported json and made the saveTabs function using the json.dump method
   #openned a file using the with open method and told it to write ("w") to the file
   #imported OS to fix the issue of duplicate names for the files by checking if that file path exists
@@ -122,7 +122,7 @@ def saveTabs(file_path):
       json.dump(tabs , file)
     print("tabs saved to " + file_path)
 
-def importTabs(file_path):
+def importTabs(file_path): #O(n) , because json.load is a linear operation
   #used the json.load method to get the file and used json.dumps method to display the tabs
   #handled the case if the user inputs a file name that doesnt exist
   try:
