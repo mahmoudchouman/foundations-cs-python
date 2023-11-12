@@ -91,7 +91,7 @@ def displayAllTabs(): #O(n^2) because this function has a for loop and a nested 
   else:
     print("There are no tabs open!")
 
-def openNestedTabs():
+def openNestedTabs(): #O(1) because it is just appending the nested tab to the tab dictionary
   parent_index = int(input("Please enter the index of the parent tab: "))
   if 0 <= parent_index < len(tabs):
     title = input("Please enter the title of the tab: ")
