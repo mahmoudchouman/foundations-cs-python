@@ -15,7 +15,7 @@ def displayMenu():  #O(1) , because it is just printing
   print("8-Import Tabs")
   print("9-Exit")
 
-def openTab():
+def openTab(): #O(1) because we are just getting input from the user and appending a dictionary to a list
   #first of all we ask the user to input a tab title and a tab url
   #then we make a dictionary called tab that contains 3 key/value pairs that uses the input title and url
   #we make "nested tabs" and keep the list empty so we can fill it later in the nested tabs function
