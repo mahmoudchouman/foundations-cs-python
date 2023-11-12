@@ -61,6 +61,10 @@ def displayTabContent(url):
 
 
 def switchTab():
+  #we get the index from the user and if no index is provided we program the function to take the index of the last tab
+  #we get the title and URL from the main list of tabs using the index provided from the user
+  #after getting the URL we call our displayTabContent helper function with the url as parameter to
+  #print the HTML content of the tab
   index = input("Please enter the index of you the tab you want to switch to: ")
   if not index:
     index = len(tabs) -1
