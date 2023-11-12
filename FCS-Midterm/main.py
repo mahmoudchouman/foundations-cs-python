@@ -33,7 +33,7 @@ def openTab(): #O(1) because we are just getting input from the user and appendi
 
 
 
-def closeTab():
+def closeTab(): #O(n) because the pop method searches for the index to be popped before removing it , basically like a loop
   #defined a variable called index that takes the index input from the user
   #made an if statement for if the user didnt input an index to close the last tab in the list of tabs
   #made a variable called close_tab that uses the pop function to close the tab at the assigned index
