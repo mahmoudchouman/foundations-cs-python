@@ -106,7 +106,7 @@ def openNestedTabs(): #O(1) because it is just appending the nested tab to the t
   else:
     print("this parent tab doesnt exist!")
 
-def clearAllTabs():
+def clearAllTabs(): #O(1) , because we are just clearing the tabs list and this is a constant operation
   global tabs
   tabs = []
   print("All Tabs Are Cleared!")
