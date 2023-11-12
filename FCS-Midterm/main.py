@@ -3,7 +3,7 @@ import os
 import requests
 
 tabs = []
-def displayMenu():
+def displayMenu():  #O(1) , because it is just printing
   print("Menu")
   print("1-Open Tab")
   print("2-Close Tab")
