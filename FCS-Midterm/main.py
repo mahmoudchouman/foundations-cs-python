@@ -58,7 +58,19 @@ def displayTabContent(url):
 
 
 def switchTab():
-  pass
+  index = input("Please enter the index of you the tab you want to switch to: ")
+  if not index:
+    index = len(tabs) -1
+  else:
+    index=int(index)
+
+  if 0 <= index < len(tabs):
+    title = tabs[index]["title"]
+    url = tabs[index]["url"]
+    print("Switched to tab " + title)
+    displayTabContent(url)
+  else:
+    print("Invalid tab index")
 
 def displayAllTabs():
   #looping through the tabs list and printing tab titles
@@ -128,8 +140,7 @@ def main():
       elif choice == 2:
         closeTab()
       elif choice == 3:
-        displayTabContent("https://justechlb.com")
-        #switchTab()
+        switchTab()
       elif choice == 4:
         displayAllTabs()
       elif choice == 5:
