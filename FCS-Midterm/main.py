@@ -50,6 +50,9 @@ def closeTab():
       print("No tab found at the index you provided!")
 
 def displayTabContent(url):
+  #we used a package called requests that allows us to hit the URL
+  #we got the response and we printed out the response.text that resembles the HTML content of the page
+
   try:
     response = requests.get(url)
     print(response.text)
