@@ -1,5 +1,29 @@
+class Node:
+    def __init__(self,info):
+        self.info = info
+        self.next = None
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.size = 0
+
+    def addNode(self,value):
+        node = Node(value)
+        node.next = self.head
+        self.head = node
+
+    def displayNodes(self):
+        current = self.head
+        while current != None:
+            print(current.info, end=" ")
+            current = current.next
+
+
+
 def displayMenu():
-    print("Menu:")
+    print("Main Menu:")
     print("1-Singly Linked List")
     print("2-Check if Palindrome")
     print("3-Priority Queue")
@@ -8,7 +32,12 @@ def displayMenu():
     print("6-Exit")
 
 def linkedList():
-    pass
+    ll = LinkedList()
+
+    print("a.Add Node")
+    print("b.Display Nodes")
+    print("c.Search for & Delete Node")
+    print("d.Return to main menu")
 
 def ifPalindrome():
     pass
