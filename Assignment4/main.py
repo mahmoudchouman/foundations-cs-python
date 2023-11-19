@@ -13,12 +13,34 @@ class LinkedList:
         node = Node(value)
         node.next = self.head
         self.head = node
+        self.size += 1
+
+    def delNode(self,value):
+        if self.size == 0:
+            print("Nothing to delete, list is empty!")
+        elif self.size == 1:
+            self.head = self.head.next
+            print("Node " , value , "was deleted")
+            self.size -= 1
+        else:
+            current = self.head
+            while current.next is not None:
+                if current.next == value:
+                    current.next = current.next.next
+                    print("Node " , value , "was deleted!")
+                    break
+                current = current.next
+
+
+
+
 
     def displayNodes(self):
         current = self.head
         while current != None:
             print(current.info, end=" ")
             current = current.next
+        print()
 
 
 
@@ -33,11 +55,38 @@ def displayMenu():
 
 def linkedList():
     ll = LinkedList()
+    while True:
+        print("a.Add Node")
+        print("b.Display Nodes")
+        print("c.Search for & Delete Node")
+        print("d.Return to main menu")
+        choicee = input("Please enter one of the above choices: ").lower()
 
-    print("a.Add Node")
-    print("b.Display Nodes")
-    print("c.Search for & Delete Node")
-    print("d.Return to main menu")
+        if choicee == "a":
+            node_value = input("Please enter a numerical value: ")
+            if node_value.isnumeric():
+                ll.addNode(node_value)
+            else:
+                print("please enter an appropriate choice!")
+        elif choicee == "b":
+            ll.displayNodes()
+        elif choicee == "c":
+            del_node = input("Please enter the value of the node u want to delete: ")
+            ll.delNode(del_node)
+
+        elif choicee == "d":
+            break
+        else:
+            print("Invalid choice!")
+
+
+
+
+
+
+
+
+
 
 def ifPalindrome():
     pass
@@ -58,7 +107,7 @@ def main():
 
     while True:
         displayMenu()
-        choice = input("Please enter a choice between 1 and 6: ")
+        choice = int(input("Please enter a choice between 1 and 6: "))
 
         if choice == 1:
             linkedList()
@@ -75,9 +124,6 @@ def main():
             break
         else:
             print("Invalid input , please enter a number between 1 and 6")
-
-
-
 
 
 
