@@ -137,8 +137,6 @@ def ifPalindrome():
 
     qq.display()
 
-    if qq[0] == qq[-1]:
-
 
 
 
