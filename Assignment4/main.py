@@ -32,10 +32,6 @@ class LinkedList:
                     break
                 current = current.next
 
-
-
-
-
     def displayNodes(self):
         current = self.head
         while current != None:
@@ -43,18 +39,37 @@ class LinkedList:
             current = current.next
         print()
 
+class Queue:
+    def __init__(self):
+        self.items = []
+        self.size = 0
+
+    def enqueue(self,item):
+        self.items.append(item)
+        self.size += 1
+
+    def dequeue(self):
+        if self.size == 0:
+            print("Queue is already empty!")
+        else:
+            self.items.pop(self.items[0])
+        self.size -= 1
+
+    def display(self):
+        print(self.items)
+
+
 
 
 def displayMenu():
-    print("Main Menu:")
-    print("1-Singly Linked List")
-    print("2-Check if Palindrome")
-    print("3-Priority Queue")
-    print("4-Evaluate an infix Expression")
-    print("5-Graph")
-    print("6-Exit")
-
     while True:
+        print("Main Menu:")
+        print("1-Singly Linked List")
+        print("2-Check if Palindrome")
+        print("3-Priority Queue")
+        print("4-Evaluate an infix Expression")
+        print("5-Graph")
+        print("6-Exit")
         choice = int(input("Please enter a choice between 1 and 6: "))
         if choice == 1:
             linkedList()
@@ -109,7 +124,29 @@ def linkedList():
 
 
 def ifPalindrome():
-    pass
+    s = input("Please input the word you want to check: ")
+    string_list =[]
+
+    for letter in s:
+       string_list.append(letter)
+
+    qq = Queue()
+
+    for letter in string_list:
+        qq.enqueue(letter)
+
+    qq.display()
+
+    if qq[0] == qq[-1]:
+
+
+
+
+
+
+
+
+
 
 def priorityQueue():
     pass
