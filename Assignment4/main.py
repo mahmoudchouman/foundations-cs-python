@@ -25,9 +25,10 @@ class LinkedList:
         else:
             current = self.head
             while current.next is not None:
-                if current.next == value:
+                if current.next.info == value:
                     current.next = current.next.next
                     print("Node " , value , "was deleted!")
+                    self.size -= 1
                     break
                 current = current.next
 
@@ -94,6 +95,7 @@ def linkedList():
 
         elif choicee == "d":
             displayMenu()
+            break
         else:
             print("Invalid choice!")
 
@@ -124,6 +126,7 @@ def main():
     print("Thank you for using my program" , name)
 
     displayMenu()
+
 
 
 
