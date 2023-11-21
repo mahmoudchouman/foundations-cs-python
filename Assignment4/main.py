@@ -52,8 +52,10 @@ class Queue:
         if self.size == 0:
             print("Queue is already empty!")
         else:
-            self.items.pop(self.items[0])
-        self.size -= 1
+            removed_item = self.items.pop(0)
+            self.size -= 1
+            return removed_item
+
 
     def display(self):
         print(self.items)
@@ -74,7 +76,10 @@ def displayMenu():
         if choice == 1:
             linkedList()
         elif choice == 2:
-            ifPalindrome()
+            if isPalindrome():
+                print("The string you entered is a palindrome!")
+            else:
+                print("The string you entered is not a palindrome :( ")
         elif choice == 3:
             priorityQueue()
         elif choice == 4:
@@ -83,7 +88,7 @@ def displayMenu():
             graph()
         elif choice == 6:
             print("Exiting the program , have a nice day!")
-            break
+            exit()
         else:
             print("Invalid input , please enter a number between 1 and 6")
 
@@ -110,7 +115,7 @@ def linkedList():
 
         elif choicee == "d":
             displayMenu()
-            break
+            return
         else:
             print("Invalid choice!")
 
@@ -123,7 +128,7 @@ def linkedList():
 
 
 
-def ifPalindrome():
+def isPalindrome():
     s = input("Please input the word you want to check: ")
     string_list =[]
 
@@ -135,7 +140,13 @@ def ifPalindrome():
     for letter in string_list:
         qq.enqueue(letter)
 
-    qq.display()
+    while qq.size != 0:
+        if qq.dequeue() != qq.items[-1]:
+            return False
+        else:
+            return True
+
+
 
 
 
@@ -159,7 +170,6 @@ def graph():
 def main():
     name = input("What is your name?: ")
     print("Thank you for using my program" , name)
-
     displayMenu()
 
 
