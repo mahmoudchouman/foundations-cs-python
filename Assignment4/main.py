@@ -82,6 +82,18 @@ class Graph:
         else:
             print("Invalid vertix input")
 
+    def removeVertex(self,vertex):
+        if 0 <= vertex < self.num_vertices:
+            del self.adj_matrix[vertex]
+            for row in self.adj_matrix:
+                del row[vertex]
+            self.num_vertices -= 1
+            print("Vertex" , vertex , "was removed!")
+        else:
+            print("Vertex" , vertex , "does not exist in your graph!")
+
+
+
 
 
 
@@ -195,9 +207,16 @@ def graph():
             vertex1 = int(input("Please enter vertex 1: "))
             vertex2 = int(input("Please enter vertex 2: "))
             g.addEdge(vertex1,vertex2)
+        elif choicee == "c":
+            vertex = int(input("Please enter the vertex you wish to remove: "))
+            g.removeVertex(vertex)
+        elif choicee == "d":
+
         elif choicee == "f":
             displayMenu()
             return
+        else:
+            print("Invalid choice!")
 
 
 def main():
