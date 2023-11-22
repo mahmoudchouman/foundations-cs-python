@@ -80,7 +80,7 @@ class Graph:
             self.adj_matrix[v2][v1] = 1
             print ("Added an edge between vertices", v1, "and", v2)
         else:
-            print("Invalid vertix input")
+            print("Invalid vertex input")
 
     def removeVertex(self,vertex):
         if 0 <= vertex < self.num_vertices:
@@ -91,6 +91,17 @@ class Graph:
             print("Vertex" , vertex , "was removed!")
         else:
             print("Vertex" , vertex , "does not exist in your graph!")
+
+    def removeEdge(self, vertex1, vertex2):
+        if 0 <= vertex1 < self.num_vertices and 0 <= vertex2 < self.num_vertices:
+            if self.adj_matrix[vertex1][vertex2] == 1:
+                self.adj_matrix[vertex1][vertex2] = 0
+                self.adj_matrix[vertex2][vertex1] = 0
+                print("Edge between Vertices", vertex1, "and", vertex2, "removed!")
+            else:
+                print("No edge between Vertices ", vertex1,"and", vertex2, "exist!")
+        else:
+            print("Invalid vertices input!")
 
 
 
@@ -211,7 +222,14 @@ def graph():
             vertex = int(input("Please enter the vertex you wish to remove: "))
             g.removeVertex(vertex)
         elif choicee == "d":
-
+            vertex1 = int(input("Please enter vertex 1: "))
+            vertex2 = int(input("Please enter vertex 2: "))
+            g.removeEdge(vertex1,vertex2)
+        elif choicee == "e":
+            n=int(input("Please enter a numerical value to display all vertices of that degree and higher: "))
+            for i in range(g.num_vertices):
+                if i >= n:
+                    print("vertex " , i)
         elif choicee == "f":
             displayMenu()
             return
