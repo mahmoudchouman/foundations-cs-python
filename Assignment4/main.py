@@ -60,6 +60,29 @@ class Queue:
     def display(self):
         print(self.items)
 
+class Graph:
+
+    def __init__(self, num_vertices):
+        self.num_vertices = num_vertices
+        self.adj_matrix = [[0]*num_vertices for _ in range(num_vertices)]
+
+    def addVertex(self):
+        self.num_vertices += 1
+        for row in self.adj_matrix:
+            row.append(0)
+        self.adj_matrix.append([0]*self.num_vertices)
+        print("Added vertex" , self.num_vertices -1)
+
+    def addEdge(self,v1,v2):
+
+        if 0<v1<self.num_vertices and 0<v2<self.num_vertices:
+            self.adj_matrix[v1][v2] = 1
+            self.adj_matrix[v2][v1] = 1
+            print ("Added an edge between vertices", v1, "and", v2)
+        else:
+            print("Invalid vertix input")
+
+
 
 
 
@@ -148,15 +171,6 @@ def isPalindrome():
 
 
 
-
-
-
-
-
-
-
-
-
 def priorityQueue():
     pass
 
@@ -164,7 +178,26 @@ def evaluateInfix():
     pass
 
 def graph():
-    pass
+    num_vertices = int(input("Please enter the number of vertices that your graph has: "))
+    g = Graph(num_vertices)
+    while True:
+        print("a.Add vertex")
+        print("b.Add edge")
+        print("c.Remove vertex")
+        print("d.Remove edge")
+        print("e.Display vertices with a degree of X or more")
+        print("f.Return to main menu")
+        choicee = input("Please enter one of the above choices: ").lower()
+
+        if choicee == "a":
+            g.addVertex()
+        elif choicee == "b":
+            vertex1 = int(input("Please enter vertex 1: "))
+            vertex2 = int(input("Please enter vertex 2: "))
+            g.addEdge(vertex1,vertex2)
+        elif choicee == "f":
+            displayMenu()
+            return
 
 
 def main():
