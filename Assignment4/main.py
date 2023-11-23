@@ -87,7 +87,7 @@ class PriorityQueue:
     def enqueue(self, Student):
 
         node = Node(Student)
-        if self.size == 0 or Student.good_attitude:
+        if self.size == 0:
             node.next = self.head
             self.head = node
             self.size += 1
@@ -95,10 +95,10 @@ class PriorityQueue:
             current = self.head
             previous = None
 
-            while current is not None and current.info.Student.good_attitude and \
-                    (current.Student.final_grade > Student.final_grade or
-                     (current.Student.final_grade == Student.final_grade and
-                      current.Student.midterm_grade > Student.midterm_grade)):
+            while current is not None and current.info.good_attitude and \
+                    (current.info.final_grade > Student.final_grade or
+                     (current.info.final_grade == Student.final_grade and
+                      current.info.midterm_grade > Student.midterm_grade)):
                 previous = current
                 current = current.next
 
