@@ -14,6 +14,7 @@ class LinkedList:
         node.next = self.head
         self.head = node
         self.size += 1
+        print("Node of value " , value , "was added")
 
     def delNode(self,value):
         if self.size == 0:
