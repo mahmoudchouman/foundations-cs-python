@@ -130,6 +130,30 @@ class PriorityQueue:
             self.size -= 1
             return dequeued_student
 
+class Stack:
+
+    def __init__(self):
+        self.head = None
+        self.size = 0
+
+    def push(self,value):
+        node = Node(value)
+        print("We are pushing" , node.info)
+        node.next = self.head
+        self.head = node
+        self.size += 1
+
+    def pop(self):
+        if self.size == 0:
+            print("We can't pop from an empty stack!")
+        else:
+            print("We are popping" , self.head.info)
+            current = self.head
+            self.head = self.head.next
+            current.next = None
+            self.size -= 1
+
+
 
 class Graph:
 
