@@ -88,7 +88,6 @@ class PriorityQueue:
 
         node = Node(Student)
         if self.size == 0:
-            node.next = self.head
             self.head = node
             self.size += 1
         else:
@@ -143,15 +142,21 @@ class Stack:
         self.head = node
         self.size += 1
 
+
     def pop(self):
         if self.size == 0:
             print("We can't pop from an empty stack!")
         else:
             print("We are popping" , self.head.info)
+            popped_item = self.head.info
             current = self.head
             self.head = self.head.next
             current.next = None
             self.size -= 1
+            return popped_item
+
+    def isEmpty(self):
+        return self.head == None
 
 
 
@@ -200,6 +205,7 @@ class Graph:
 
 
 def displayMenu():
+    num_error = 0
     while True:
         print("Main Menu:")
         print("1-Singly Linked List")
@@ -209,24 +215,37 @@ def displayMenu():
         print("5-Graph")
         print("6-Exit")
         choice = int(input("Please enter a choice between 1 and 6: "))
+
         if choice == 1:
+            num_error = 0
             linkedList()
         elif choice == 2:
+            num_error = 0
             if isPalindrome():
                 print("The string you entered is a palindrome!")
             else:
                 print("The string you entered is not a palindrome :( ")
         elif choice == 3:
+            num_error = 0
             priorityQueue()
         elif choice == 4:
+            num_error = 0
             evaluateInfix()
         elif choice == 5:
+            num_error = 0
             graph()
         elif choice == 6:
             print("Exiting the program , have a nice day!")
             exit()
         else:
             print("Invalid input , please enter a number between 1 and 6")
+            num_error += 1
+            print("your number of errors is: " , num_error)
+            if num_error > 4:
+                exit()
+
+
+
 
 
 def linkedList():
@@ -309,7 +328,34 @@ def priorityQueue():
 
 
 def evaluateInfix():
-    pass
+    infix = input("Please enter the infix expression that you want to evaluate: ")
+    stack_numbers = Stack()
+    stack_operators = Stack()
+    operator_mapping = {"+": int.__add__, "-": int.__sub__, "*": int.__mul__, "/": int.__truediv__}
+
+    i = 0
+    while i < len(infix):
+        if infix[i] in {"+", "-"}:
+            stack_operators.push(infix[i])
+            stack_numbers.push(int(infix[i-1]))
+            stack_numbers.push(int(infix[i+1]))
+        elif infix[i] in {"*", "/"}:
+            stack_operators.push(infix[i])
+            stack_numbers.push(int(infix[i-1]))
+            stack_numbers.push(int(infix[i+1]))
+
+        i += 1
+
+    while not stack_operators.isEmpty() and not stack_numbers.isEmpty():
+        operand2 = stack_numbers.pop()
+        operator = operator_mapping[stack_operators.pop()]
+        operand1 = stack_numbers.pop()
+        result = operator(operand1, operand2)
+        stack_numbers.push(result)
+
+    final_result = stack_numbers.pop()
+    print("Result" , final_result)
+
 
 
 def graph():
@@ -353,6 +399,5 @@ def main():
     name = input("What is your name?: ")
     print("Thank you for using my program", name)
     displayMenu()
-
 
 main()
